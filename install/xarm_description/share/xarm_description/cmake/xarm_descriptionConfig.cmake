@@ -1,1 +1,0 @@
-/home/zephyrus/xarm1s_ws/build/xarm_description/ament_cmake_core/xarm_descriptionConfig.cmake

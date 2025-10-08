@@ -1,1 +1,0 @@
-/home/zephyrus/xarm1s_ws/src/xarm_description/launch/display.launch.py

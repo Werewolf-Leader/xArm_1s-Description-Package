@@ -1,1 +1,0 @@
-/home/zephyrus/xarm1s_ws/src/xarm_description/launch/controller.launch.py
