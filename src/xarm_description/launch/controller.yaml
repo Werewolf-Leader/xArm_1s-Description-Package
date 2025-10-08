@@ -1,0 +1,35 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    xarm_trajectory_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+xarm_trajectory_controller:
+  ros__parameters:
+    joints:
+      - base_to_link1
+      - link1_to_link2
+      - link2_to_link3
+      - linkt_to_link5
+      - link5_to_gripperbase
+      - gripper_finger1_joint
+      - gripper_finger2_joint
+    
+    command_interfaces:
+      - position
+    
+    state_interfaces:
+      - position
+      - velocity
+    
+    state_publish_rate: 50.0
+    action_monitor_rate: 20.0
+    
+    allow_partial_joints_goal: false
+    constraints:
+      stopped_velocity_tolerance: 0.01
+      goal_time: 0.0

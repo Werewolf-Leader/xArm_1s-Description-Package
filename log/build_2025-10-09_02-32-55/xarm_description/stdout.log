@@ -1,0 +1,43 @@
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/zephyrus/xarm1s_ws/build/xarm_description
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/launch/controller.launch.py
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/launch/controller.yaml
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/launch/display.launch.py
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/launch/gazebo.launch.py
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/launch/urdf.rviz
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/Gripper_end_1_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/Gripper_end_2_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/Link_1_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/Link_2_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/Link_3_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/Link_4_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/Link_5_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/base_link.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/finger_1_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/finger_2_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/meshes/gripper_base_1.stl
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/urdf/materials.xacro
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/urdf/xarm.gazebo
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/urdf/xarm.ros2_control.xacro
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/urdf/xarm.xacro
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/ament_index/resource_index/package_run_dependencies/xarm_description
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/ament_index/resource_index/parent_prefix_path/xarm_description
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/environment/path.sh
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/environment/path.dsv
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/local_setup.bash
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/local_setup.sh
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/local_setup.zsh
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/local_setup.dsv
+-- Symlinking: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/package.dsv
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/ament_index/resource_index/packages/xarm_description
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/cmake/xarm_descriptionConfig.cmake
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/cmake/xarm_descriptionConfig-version.cmake
+-- Up-to-date symlink: /home/zephyrus/xarm1s_ws/install/xarm_description/share/xarm_description/package.xml
