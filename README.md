@@ -1,1 +1,1 @@
-# xArm_1s-ROS2-compatible-URDF-
+# xArm_1s-ROS2-Description-Package
