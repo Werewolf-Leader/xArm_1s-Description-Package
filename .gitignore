@@ -1,26 +1,58 @@
-# ROS2 build artifacts
+# ROS2 Workspace
 build/
 install/
 log/
-
-# IDE/Editor files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+.colcon/
 
 # Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+*.egg
+*.egg-info/
+dist/
+downloads/
+.eggs/
 .Python
+env/
+venv/
+ENV/
+*.pyc
 
-# OS files
+# C++
+*.o
+*.a
+*.so
+*.exe
+*.out
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+CTestTestfile.cmake
+_deps/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
 .DS_Store
-Thumbs.db
+
+# Gazebo
+*.log
+
+# RViz
+*.perspective
 
 # Backup files
+*~
 *.bak
 *.backup
+
+# Temporary files
+*.tmp
+.cache/
