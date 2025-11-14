@@ -1,25 +1,28 @@
-# XArm 1s ROS2 URDF Package
+# XArm 1s ROS2 Complete Package
 
 [![ROS2](https://img.shields.io/badge/ROS2-Humble-blue)](https://docs.ros.org/en/humble/)
 [![ROS2](https://img.shields.io/badge/ROS2-Jazzy-green)](https://docs.ros.org/en/jazzy/)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
-A professional, production-ready ROS2 package for the XArm 1s robotic manipulator. This package provides complete URDF/XACRO descriptions, ros2_control integration, and simulation capabilities for both Gazebo and RViz2.
+A professional, production-ready ROS2 package suite for the XArm 1s robotic manipulator. This workspace provides complete URDF/XACRO descriptions, MoveIt2 motion planning, ros2_control integration, and a high-level task execution system for both simulation and hardware control.
 
-![XArm Robot](https://img.shields.io/badge/DOF-5+2-orange) ![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![XArm Robot](https://img.shields.io/badge/DOF-5+2-orange) ![Build](https://img.shields.io/badge/build-passing-brightgreen) ![MoveIt2](https://img.shields.io/badge/MoveIt2-Enabled-purple)
 
 ## 🌟 Features
 
 - ✅ **Complete Robot Description**: 5-DOF arm + 2-DOF gripper with accurate kinematics
+- ✅ **MoveIt2 Integration**: Full motion planning with collision detection and path planning
+- ✅ **Task Execution System**: High-level action server for pick-and-place operations
 - ✅ **ROS2 Control Integration**: Full ros2_control support for simulation and hardware
 - ✅ **Gazebo Simulation**: Ready-to-use Gazebo Classic integration with physics
 - ✅ **RViz2 Visualization**: Interactive visualization with joint state control
 - ✅ **Modern Architecture**: Python-based launch files, event-driven controller spawning
-- ✅ **Well Documented**: Comprehensive README, troubleshooting guides, and examples
+- ✅ **Well Documented**: Comprehensive guides, quickstart tutorials, and examples
 - ✅ **Production Ready**: Tested on ROS2 Humble and Jazzy
 
 ## 📋 Table of Contents
 
+- [Packages Overview](#packages-overview)
 - [Installation](#installation)
 - [Quick Start](#quick-start)
 - [Usage](#usage)
@@ -27,6 +30,19 @@ A professional, production-ready ROS2 package for the XArm 1s robotic manipulato
 - [Documentation](#documentation)
 - [Contributing](#contributing)
 - [License](#license)
+
+## 📦 Packages Overview
+
+This workspace contains three main packages:
+
+### 1. **xarm_description**
+Core robot description package with URDF/XACRO files, ros2_control configuration, and basic visualization/simulation capabilities.
+
+### 2. **xarm_moveit**
+MoveIt2 configuration package providing motion planning, collision detection, and trajectory execution for the XArm 1s.
+
+### 3. **xarm_remote**
+High-level task execution system with action servers for complex operations like pick-and-place. Includes both string-based and number-based task interfaces.
 
 ## 🚀 Installation
 
@@ -46,7 +62,10 @@ sudo apt install ros-${ROS_DISTRO}-gazebo-ros2-control \
                  ros-${ROS_DISTRO}-robot-state-publisher \
                  ros-${ROS_DISTRO}-joint-state-publisher-gui \
                  ros-${ROS_DISTRO}-xacro \
-                 ros-${ROS_DISTRO}-gazebo-ros-pkgs
+                 ros-${ROS_DISTRO}-gazebo-ros-pkgs \
+                 ros-${ROS_DISTRO}-moveit \
+                 ros-${ROS_DISTRO}-moveit-ros-planning-interface \
+                 ros-${ROS_DISTRO}-moveit-visual-tools
 ```
 
 ### Build from Source
@@ -57,7 +76,7 @@ mkdir -p ~/xarm_ws/src
 cd ~/xarm_ws/src
 
 # Clone repository
-git clone https://github.com/Werewolf-Leader/xArm_1s-ROS2-URDF-package.git xarm_description
+git clone -b moveit-configured https://github.com/Werewolf-Leader/xArm_1s-Description-Package.git .
 
 # Build
 cd ~/xarm_ws
@@ -69,7 +88,7 @@ source install/setup.bash
 
 ## ⚡ Quick Start
 
-### Visualize in RViz2
+### 1. Basic Visualization (RViz2)
 
 ```bash
 source ~/xarm_ws/install/setup.bash
@@ -78,32 +97,67 @@ ros2 launch xarm_description display.launch.py
 
 Use the Joint State Publisher GUI to interactively control the robot joints!
 
-### Simulate in Gazebo
+### 2. MoveIt2 Demo (Motion Planning)
+
+```bash
+source ~/xarm_ws/install/setup.bash
+ros2 launch xarm_moveit demo.launch.py
+```
+
+Use the MoveIt2 RViz interface to plan and execute trajectories with collision detection!
+
+### 3. Full System with Task Server
+
+```bash
+source ~/xarm_ws/install/setup.bash
+ros2 launch xarm_remote full_system.launch.py
+```
+
+Then send high-level commands:
+
+```bash
+# Pick and place operation
+ros2 action send_goal /xarm_task xarm_remote/action/XarmTask \
+  "{task_name: 'pick_place', target_position: {x: 0.2, y: 0.1, z: 0.15}}"
+
+# Or use the Python client
+ros2 run xarm_remote task_client.py
+```
+
+### 4. Gazebo Simulation
 
 ```bash
 source ~/xarm_ws/install/setup.bash
 ros2 launch xarm_description gazebo.launch.py
 ```
 
-### Send Trajectory Commands
-
-```bash
-ros2 action send_goal /xarm_trajectory_controller/follow_joint_trajectory \
-  control_msgs/action/FollowJointTrajectory \
-  "{trajectory: {joint_names: [base_to_link1, link1_to_link2, link2_to_link3, \
-  linkt_to_link5, link5_to_gripperbase, gripper_finger1_joint, gripper_finger2_joint], \
-  points: [{positions: [0.5, 0.5, 0.5, 0.5, 0.5, -0.3, 0.3], time_from_start: {sec: 2}}]}}"
-```
-
 ## 📖 Usage
 
-For detailed usage instructions, see the [package README](src/xarm_description/README.md).
+### xarm_description Package
 
-### Available Launch Files
-
+Basic robot description and visualization:
 - `display.launch.py` - RViz2 visualization with joint control
 - `gazebo.launch.py` - Gazebo simulation with ros2_control
 - `controller.launch.py` - Standalone controller manager
+
+See [xarm_description README](src/xarm_description/README.md) for details.
+
+### xarm_moveit Package
+
+MoveIt2 motion planning:
+- `demo.launch.py` - Complete MoveIt2 demo with RViz
+- `move_group.launch.py` - MoveIt2 move_group node
+- `moveit_rviz.launch.py` - RViz with MoveIt2 plugin
+
+### xarm_remote Package
+
+High-level task execution:
+- `full_system.launch.py` - Complete system (MoveIt2 + Task Server)
+- `full_system_number.launch.py` - Number-based task interface
+- `task_server.launch.py` - Standalone task server
+- `task_client.py` - Python client for sending tasks
+
+See [xarm_remote QUICKSTART](src/xarm_remote/QUICKSTART.md) for detailed tutorials.
 
 ## 🤖 Robot Specifications
 
@@ -127,9 +181,14 @@ For detailed usage instructions, see the [package README](src/xarm_description/R
 
 ## 📚 Documentation
 
-- **[Package README](src/xarm_description/README.md)** - Detailed usage and API
-- **[Engineering Review](ENGINEERING_REVIEW.md)** - Technical architecture details
-- **[Contributing Guide](CONTRIBUTING.md)** - How to contribute
+### Package Documentation
+- **[xarm_description README](src/xarm_description/README.md)** - Robot description and basic usage
+- **[xarm_remote QUICKSTART](src/xarm_remote/QUICKSTART.md)** - Task server quick start guide
+- **[xarm_remote README](src/xarm_remote/README.md)** - Complete task system documentation
+- **[Task Number Guide](src/xarm_remote/TASK_NUMBER_GUIDE.md)** - Number-based task interface
+
+### Project Documentation
+- **[Code Review Report](CODE_REVIEW_REPORT.md)** - Code quality and architecture review
 - **[License](src/xarm_description/LICENSE)** - CC BY-NC 4.0
 
 ## 🛠️ Troubleshooting
@@ -152,13 +211,14 @@ Check the [Troubleshooting Section](src/xarm_description/README.md#troubleshooti
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+Contributions are welcome! Please open an issue or pull request for:
 
-Areas we'd love help with:
-- MoveIt2 configuration
 - Hardware interface implementation
+- Additional task types and behaviors
+- Performance optimizations
 - Additional examples and tutorials
 - Bug fixes and improvements
+- Documentation enhancements
 
 ## 📜 License
 
