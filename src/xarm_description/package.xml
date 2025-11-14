@@ -2,10 +2,10 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>xarm_description</name>
-  <version>0.0.0</version>
-  <description>The xarm_description package</description>
+  <version>1.0.0</version>
+  <description>The xarm_description package provides a URDF model for the xArm 1S robot arm.</description>
   
-  <maintainer email="your_email@example.com">Your Name</maintainer>
+  <maintainer email="werewolf.leader@example.com">Werewolf-Leader</maintainer>
   <license>CC-BY-NC-4.0</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>

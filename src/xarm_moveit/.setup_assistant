@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: xarm_description
+    relative_path: urdf/xarm.xacro
+  srdf:
+    relative_path: config/xarm.srdf
+  package_settings:
+    author_name: Mukul Sharma
+    author_email: imsharma@protonmail.com
+    generated_timestamp: 1763076292
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

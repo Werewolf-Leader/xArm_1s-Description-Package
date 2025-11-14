@@ -1,9 +1,15 @@
 <?xml version="1.0" ?>
 <robot name="xarm" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+<xacro:arg name="use_gazebo" default="false"/>
+
 <xacro:include filename="$(find xarm_description)/urdf/materials.xacro" />
 <xacro:include filename="$(find xarm_description)/urdf/xarm.gazebo" />
-<xacro:include filename="$(find xarm_description)/urdf/xarm.ros2_control.xacro" />
+
+<!-- Only include Gazebo ros2_control if use_gazebo is true -->
+<xacro:if value="$(arg use_gazebo)">
+  <xacro:include filename="$(find xarm_description)/urdf/xarm.ros2_control.xacro" />
+</xacro:if>
 <link name="base_link">
   <inertial>
     <origin xyz="-0.003348274822226489 -4.457765549128597e-05 0.031108613282001457" rpy="0 0 0"/>
@@ -197,7 +203,7 @@
   <inertial>
     <origin xyz="-0.008709267199550398 0.0015004999553736196 0.023308296150939045" rpy="0 0 0"/>
     <mass value="0.012557670523597225"/>
-    <inertia ixx="3e-06" iyy="4e-06" izz="0.0" ixy="-0.0" iyz="0.0" ixz="1e-06"/>
+    <inertia ixx="3e-06" iyy="4e-06" izz="2e-06" ixy="-0.0" iyz="0.0" ixz="1e-06"/>
   </inertial>
   <visual>
     <origin xyz="-0.013657 0.001513 -0.396937" rpy="0 0 0"/>
@@ -218,7 +224,7 @@
   <inertial>
     <origin xyz="0.008709194843970345 0.0015004999553735558 0.023308701233581364" rpy="0 0 0"/>
     <mass value="0.012557670523597225"/>
-    <inertia ixx="3e-06" iyy="4e-06" izz="0.0" ixy="0.0" iyz="0.0" ixz="-1e-06"/>
+    <inertia ixx="3e-06" iyy="4e-06" izz="2e-06" ixy="0.0" iyz="0.0" ixz="-1e-06"/>
   </inertial>
   <visual>
     <origin xyz="0.03173 0.001513 -0.398118" rpy="0 0 0"/>

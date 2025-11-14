@@ -1,0 +1,14 @@
+# Goal: Pick and place operation
+geometry_msgs/Pose pick_pose
+geometry_msgs/Pose place_pose
+float32 approach_distance  # Distance to approach before grasping
+float32 retreat_distance   # Distance to retreat after grasping
+---
+# Result
+bool success
+string message
+float32 total_time
+---
+# Feedback
+string current_phase  # "approaching", "grasping", "lifting", "moving", "placing", "retreating"
+float32 progress

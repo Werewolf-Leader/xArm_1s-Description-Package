@@ -1,0 +1,15 @@
+# Goal: Task to execute
+string task_name
+string[] parameters
+geometry_msgs/Pose target_pose
+bool use_gripper
+float32 gripper_position
+---
+# Result
+bool success
+string message
+float32 execution_time
+---
+# Feedback
+string current_state
+float32 progress
