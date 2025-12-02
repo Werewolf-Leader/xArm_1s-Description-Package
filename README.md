@@ -8,6 +8,12 @@ A professional, production-ready ROS2 package suite for the XArm 1s robotic mani
 
 ![XArm Robot](https://img.shields.io/badge/DOF-5+2-orange) ![Build](https://img.shields.io/badge/build-passing-brightgreen) ![MoveIt2](https://img.shields.io/badge/MoveIt2-Enabled-purple)
 
+## 🎥 Demo Video
+
+https://github.com/Werewolf-Leader/xArm_1s-Description-Package/assets/your-username/eYRC-KC%235167_Task1A%20(online-video-cutter.com)(2).mp4
+
+*Watch the XArm 1s in action with MoveIt2 motion planning and task execution!*
+
 
 <video controls src="eYRC-KC#5167_Task1A (online-video-cutter.com)(2).mp4" title="Title"></video>
 
