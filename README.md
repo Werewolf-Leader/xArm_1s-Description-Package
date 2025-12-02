@@ -13,10 +13,12 @@ A professional, production-ready ROS2 package suite for the XArm 1s robotic mani
 - ✅ **Complete Robot Description**: 5-DOF arm + 2-DOF gripper with accurate kinematics
 - ✅ **MoveIt2 Integration**: Full motion planning with collision detection and path planning
 - ✅ **Task Execution System**: High-level action server for pick-and-place operations
+- ✅ **Alexa Voice Control**: Voice-controlled robot operations via Amazon Alexa integration
 - ✅ **ROS2 Control Integration**: Full ros2_control support for simulation and hardware
 - ✅ **Gazebo Simulation**: Ready-to-use Gazebo Classic integration with physics
 - ✅ **RViz2 Visualization**: Interactive visualization with joint state control
 - ✅ **Modern Architecture**: Python-based launch files, event-driven controller spawning
+- ✅ **Secure Configuration**: Environment-based secrets management for production deployment
 - ✅ **Well Documented**: Comprehensive guides, quickstart tutorials, and examples
 - ✅ **Production Ready**: Tested on ROS2 Humble and Jazzy
 
@@ -42,7 +44,7 @@ Core robot description package with URDF/XACRO files, ros2_control configuration
 MoveIt2 configuration package providing motion planning, collision detection, and trajectory execution for the XArm 1s.
 
 ### 3. **xarm_remote**
-High-level task execution system with action servers for complex operations like pick-and-place. Includes both string-based and number-based task interfaces.
+High-level task execution system with action servers for complex operations like pick-and-place. Includes both string-based and number-based task interfaces, plus Alexa voice control integration for hands-free robot operation.
 
 ## 🚀 Installation
 
@@ -124,7 +126,35 @@ ros2 action send_goal /xarm_task xarm_remote/action/XarmTask \
 ros2 run xarm_remote task_client.py
 ```
 
-### 4. Gazebo Simulation
+### 4. Alexa Voice Control
+
+Control your robot with voice commands! First, configure your Alexa Skill ID:
+
+```bash
+# Copy environment template
+cd ~/xarm_ws/src/xarm_remote
+cp .env.example .env
+
+# Edit .env and add your Alexa Skill ID
+nano .env
+```
+
+Then launch the Alexa interface:
+
+```bash
+source ~/xarm_ws/install/setup.bash
+export ALEXA_SKILL_ID=your-skill-id-here  # or set in .env
+ros2 launch xarm_remote remote_interface.launch.py
+```
+
+See [Alexa Setup Guide](src/xarm_remote/README_ALEXA_SETUP.md) for detailed configuration.
+
+**Voice Commands:**
+- "Alexa, ask robot to wake up" - Initialize robot
+- "Alexa, ask robot to pick" - Execute pick and place
+- "Alexa, ask robot to sleep" - Return to home position
+
+### 5. Gazebo Simulation
 
 ```bash
 source ~/xarm_ws/install/setup.bash
@@ -151,13 +181,14 @@ MoveIt2 motion planning:
 
 ### xarm_remote Package
 
-High-level task execution:
+High-level task execution and voice control:
 - `full_system.launch.py` - Complete system (MoveIt2 + Task Server)
 - `full_system_number.launch.py` - Number-based task interface
+- `remote_interface.launch.py` - Alexa voice control interface
 - `task_server.launch.py` - Standalone task server
 - `task_client.py` - Python client for sending tasks
 
-See [xarm_remote QUICKSTART](src/xarm_remote/QUICKSTART.md) for detailed tutorials.
+See [xarm_remote README](src/xarm_remote/README.md) and [Alexa Setup Guide](src/xarm_remote/README_ALEXA_SETUP.md) for detailed tutorials.
 
 ## 🤖 Robot Specifications
 
@@ -183,12 +214,10 @@ See [xarm_remote QUICKSTART](src/xarm_remote/QUICKSTART.md) for detailed tutoria
 
 ### Package Documentation
 - **[xarm_description README](src/xarm_description/README.md)** - Robot description and basic usage
-- **[xarm_remote QUICKSTART](src/xarm_remote/QUICKSTART.md)** - Task server quick start guide
 - **[xarm_remote README](src/xarm_remote/README.md)** - Complete task system documentation
-- **[Task Number Guide](src/xarm_remote/TASK_NUMBER_GUIDE.md)** - Number-based task interface
+- **[Alexa Setup Guide](src/xarm_remote/README_ALEXA_SETUP.md)** - Voice control configuration
 
 ### Project Documentation
-- **[Code Review Report](CODE_REVIEW_REPORT.md)** - Code quality and architecture review
 - **[License](src/xarm_description/LICENSE)** - CC BY-NC 4.0
 
 ## 🛠️ Troubleshooting
@@ -204,6 +233,15 @@ Add to `~/.bashrc` for automatic sourcing:
 ```bash
 echo "source ~/xarm_ws/install/setup.bash" >> ~/.bashrc
 ```
+
+### Alexa Interface Not Starting
+
+Make sure you've set the `ALEXA_SKILL_ID` environment variable:
+```bash
+export ALEXA_SKILL_ID=your-skill-id-here
+```
+
+Or create a `.env` file in `src/xarm_remote/` with your Skill ID. See [Alexa Setup Guide](src/xarm_remote/README_ALEXA_SETUP.md).
 
 ### More Issues?
 
