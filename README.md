@@ -8,6 +8,9 @@ A professional, production-ready ROS2 package suite for the XArm 1s robotic mani
 
 ![XArm Robot](https://img.shields.io/badge/DOF-5+2-orange) ![Build](https://img.shields.io/badge/build-passing-brightgreen) ![MoveIt2](https://img.shields.io/badge/MoveIt2-Enabled-purple)
 
+
+<video controls src="eYRC-KC#5167_Task1A (online-video-cutter.com)(2).mp4" title="Title"></video>
+
 ## 🌟 Features
 
 - ✅ **Complete Robot Description**: 5-DOF arm + 2-DOF gripper with accurate kinematics
