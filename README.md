@@ -12,6 +12,8 @@ A professional, production-ready ROS2 package suite for the XArm 1s robotic mani
 
 ![XArm 1s Demo](ezgif-79365b66f1419300.gif)
 
+Notion Docs :  https://www.notion.so/imsharma/2b66d122f3df80a9891efba5d7bc67e3?v=2bd6d122f3df80be930a000c2d0d9a55
+
 *XArm 1s in action with MoveIt2 motion planning and task execution!*
 
 ## 🌟 Features
