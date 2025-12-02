@@ -65,8 +65,15 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# Install Python scripts
+# Install Python module
+install(DIRECTORY ${PROJECT_NAME}/
+  DESTINATION lib/python3/dist-packages/${PROJECT_NAME}
+  FILES_MATCHING PATTERN "*.py"
+)
+
+# Install Python scripts as executables
 install(PROGRAMS
+  ${PROJECT_NAME}/alexa_interface.py
   scripts/task_client.py
   scripts/task_client_number.py
   scripts/test_integration.py
@@ -76,6 +83,7 @@ install(PROGRAMS
 # Install launch files
 install(DIRECTORY
   launch
+
   DESTINATION share/${PROJECT_NAME}
   OPTIONAL
 )

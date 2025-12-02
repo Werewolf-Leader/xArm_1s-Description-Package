@@ -20,6 +20,11 @@ venv/
 ENV/
 *.pyc
 
+# Environment variables (contains secrets)
+.env
+*.env
+!.env.example
+
 # C++
 *.o
 *.a
